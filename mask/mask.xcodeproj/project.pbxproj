@@ -17,6 +17,8 @@
 		234E623A286BED4300D94FA8 /* maskTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 234E6239286BED4300D94FA8 /* maskTests.swift */; };
 		234E6244286BED4300D94FA8 /* maskUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 234E6243286BED4300D94FA8 /* maskUITests.swift */; };
 		234E6246286BED4300D94FA8 /* maskUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 234E6245286BED4300D94FA8 /* maskUITestsLaunchTests.swift */; };
+		234E6253286BED7E00D94FA8 /* StorageManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 234E6252286BED7E00D94FA8 /* StorageManager.swift */; };
+		234E6255286BF09100D94FA8 /* maskData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 234E6254286BF09100D94FA8 /* maskData.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -51,6 +53,8 @@
 		234E623F286BED4300D94FA8 /* maskUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = maskUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		234E6243286BED4300D94FA8 /* maskUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = maskUITests.swift; sourceTree = "<group>"; };
 		234E6245286BED4300D94FA8 /* maskUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = maskUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		234E6252286BED7E00D94FA8 /* StorageManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StorageManager.swift; sourceTree = "<group>"; };
+		234E6254286BF09100D94FA8 /* maskData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = maskData.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -104,6 +108,8 @@
 				234E621F286BED4100D94FA8 /* AppDelegate.swift */,
 				234E6221286BED4100D94FA8 /* SceneDelegate.swift */,
 				234E6223286BED4100D94FA8 /* ViewController.swift */,
+				234E6252286BED7E00D94FA8 /* StorageManager.swift */,
+				234E6254286BF09100D94FA8 /* maskData.swift */,
 				234E6225286BED4100D94FA8 /* Main.storyboard */,
 				234E622B286BED4300D94FA8 /* Assets.xcassets */,
 				234E622D286BED4300D94FA8 /* LaunchScreen.storyboard */,
@@ -262,7 +268,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				234E6224286BED4100D94FA8 /* ViewController.swift in Sources */,
+				234E6255286BF09100D94FA8 /* maskData.swift in Sources */,
 				234E622A286BED4100D94FA8 /* mask.xcdatamodeld in Sources */,
+				234E6253286BED7E00D94FA8 /* StorageManager.swift in Sources */,
 				234E6220286BED4100D94FA8 /* AppDelegate.swift in Sources */,
 				234E6222286BED4100D94FA8 /* SceneDelegate.swift in Sources */,
 			);
