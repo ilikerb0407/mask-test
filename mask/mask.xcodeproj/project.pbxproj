@@ -19,6 +19,11 @@
 		234E6246286BED4300D94FA8 /* maskUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 234E6245286BED4300D94FA8 /* maskUITestsLaunchTests.swift */; };
 		234E6253286BED7E00D94FA8 /* StorageManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 234E6252286BED7E00D94FA8 /* StorageManager.swift */; };
 		234E6255286BF09100D94FA8 /* maskData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 234E6254286BF09100D94FA8 /* maskData.swift */; };
+		234E6259286BF3EB00D94FA8 /* HTTPClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 234E6258286BF3EB00D94FA8 /* HTTPClient.swift */; };
+		234E625B286BF50E00D94FA8 /* MaskConstant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 234E625A286BF50E00D94FA8 /* MaskConstant.swift */; };
+		234E625D286BF67D00D94FA8 /* Bundle+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 234E625C286BF67D00D94FA8 /* Bundle+Extension.swift */; };
+		234E625F286BF91600D94FA8 /* Parser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 234E625E286BF91600D94FA8 /* Parser.swift */; };
+		234E6261286BFA2400D94FA8 /* MaskProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 234E6260286BFA2400D94FA8 /* MaskProvider.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -55,6 +60,11 @@
 		234E6245286BED4300D94FA8 /* maskUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = maskUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		234E6252286BED7E00D94FA8 /* StorageManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StorageManager.swift; sourceTree = "<group>"; };
 		234E6254286BF09100D94FA8 /* maskData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = maskData.swift; sourceTree = "<group>"; };
+		234E6258286BF3EB00D94FA8 /* HTTPClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTTPClient.swift; sourceTree = "<group>"; };
+		234E625A286BF50E00D94FA8 /* MaskConstant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MaskConstant.swift; sourceTree = "<group>"; };
+		234E625C286BF67D00D94FA8 /* Bundle+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Bundle+Extension.swift"; sourceTree = "<group>"; };
+		234E625E286BF91600D94FA8 /* Parser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Parser.swift; sourceTree = "<group>"; };
+		234E6260286BFA2400D94FA8 /* MaskProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MaskProvider.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -108,7 +118,12 @@
 				234E621F286BED4100D94FA8 /* AppDelegate.swift */,
 				234E6221286BED4100D94FA8 /* SceneDelegate.swift */,
 				234E6223286BED4100D94FA8 /* ViewController.swift */,
+				234E6260286BFA2400D94FA8 /* MaskProvider.swift */,
+				234E625A286BF50E00D94FA8 /* MaskConstant.swift */,
+				234E6258286BF3EB00D94FA8 /* HTTPClient.swift */,
+				234E625C286BF67D00D94FA8 /* Bundle+Extension.swift */,
 				234E6252286BED7E00D94FA8 /* StorageManager.swift */,
+				234E625E286BF91600D94FA8 /* Parser.swift */,
 				234E6254286BF09100D94FA8 /* maskData.swift */,
 				234E6225286BED4100D94FA8 /* Main.storyboard */,
 				234E622B286BED4300D94FA8 /* Assets.xcassets */,
@@ -267,9 +282,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				234E6261286BFA2400D94FA8 /* MaskProvider.swift in Sources */,
 				234E6224286BED4100D94FA8 /* ViewController.swift in Sources */,
+				234E625D286BF67D00D94FA8 /* Bundle+Extension.swift in Sources */,
+				234E625F286BF91600D94FA8 /* Parser.swift in Sources */,
 				234E6255286BF09100D94FA8 /* maskData.swift in Sources */,
 				234E622A286BED4100D94FA8 /* mask.xcdatamodeld in Sources */,
+				234E625B286BF50E00D94FA8 /* MaskConstant.swift in Sources */,
+				234E6259286BF3EB00D94FA8 /* HTTPClient.swift in Sources */,
 				234E6253286BED7E00D94FA8 /* StorageManager.swift in Sources */,
 				234E6220286BED4100D94FA8 /* AppDelegate.swift in Sources */,
 				234E6222286BED4100D94FA8 /* SceneDelegate.swift in Sources */,
