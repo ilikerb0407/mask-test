@@ -10,6 +10,7 @@ import UIKit
 class ViewController: UIViewController {
 
     
+    var product: MaskData?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -18,6 +19,8 @@ class ViewController: UIViewController {
 //        fetchData()
         
         testtest()
+        
+        
     }
     
     let maskProvider = MaskProvider()
@@ -56,6 +59,7 @@ class ViewController: UIViewController {
 
                 self?.test = products
                 
+                self?.saveToDB(products)
 
             case .failure:
 
@@ -64,6 +68,27 @@ class ViewController: UIViewController {
             }
         })
     }
+    
+    func saveToDB(_ product: MaskData) {
+
+        StorageManager.shared.saveOrder(
+            product: product ,
+            completion: { result in
+
+                switch result {
+
+                case .success:
+
+                    print("success")
+
+                case .failure:
+
+                    print("failure")
+                    
+                }
+            })
+    }
+    
     
     
 

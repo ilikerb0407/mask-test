@@ -9,6 +9,8 @@ import Foundation
 import CoreData
 
 
+typealias LSOrderResults = (Result<[Mask]>) -> Void
+
 @objc class StorageManager: NSObject {
     
     static let shared = StorageManager()
@@ -40,6 +42,8 @@ import CoreData
 
         return persistanceContainer.viewContext
     }
+    
+    @objc dynamic var orders: [Mask] = []
    
     
     
@@ -48,14 +52,81 @@ import CoreData
     func saveToLocal() {
         
         
-        
     }
     
+    func saveOrder( product: MaskData,
+        completion: (Result<Void>) -> Void) {
+
+        let order = Mask(context: viewContext)
+
+        let lsProduct = Mask(context: viewContext)
+
+        lsProduct.mapping(product)
+        
+        order.name = lsProduct.name
+        
+        save(completion: completion)
+    }
     
+    func save(completion: (Result<Void>) -> Void = { _ in  }) {
+        
+        do {
+            try viewContext.save()
+            
+            
+            fetchOrders(completion: { result in
+
+                switch result {
+
+                case .success: completion(Result.success(()))
+
+                case .failure(let error): completion(Result.failure(error))
+
+                }
+            })
+            
+        } catch {
+            
+            completion(Result.failure(error))
+        }
+    }
     
+    func fetchOrders(completion: LSOrderResults = { _ in }) {
+
+        let request = NSFetchRequest<Mask>(entityName: "Mask")
+        
+        do {
+
+            let orders = try viewContext.fetch(request)
+            
+            self.orders = orders
+
+            completion(Result.success(orders))
+
+        } catch {
+
+            completion(Result.failure(error))
+        }
+    }
     
+
     
-    
+}
+
+// MARK: - Data Operation
+private extension Mask {
+
+    func mapping(_ object: MaskData) {
+        
+        name = object.features.first?.properties.name
+        
+        id = object.features.first?.properties.id
+        
+        phone = object.features.first?.properties.phone
+        
+    }
+
+
 }
 
 
