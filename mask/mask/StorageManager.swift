@@ -44,16 +44,9 @@ typealias LSOrderResults = (Result<[Mask]>) -> Void
     }
     
     @objc dynamic var orders: [Mask] = []
-   
-    
+
     
     // MARK: save to local
-    
-    func saveToLocal() {
-        
-        
-    }
-    
     func saveOrder( product: MaskData,
         completion: (Result<Void>) -> Void) {
 
@@ -78,7 +71,9 @@ typealias LSOrderResults = (Result<[Mask]>) -> Void
 
                 switch result {
 
-                case .success: completion(Result.success(()))
+                case .success:
+                    
+                    completion(Result.success(()))
 
                 case .failure(let error): completion(Result.failure(error))
 
@@ -107,6 +102,13 @@ typealias LSOrderResults = (Result<[Mask]>) -> Void
 
             completion(Result.failure(error))
         }
+    }
+    
+    func deleteOrder(_ order: Mask, completion: (Result<Void>) -> Void) {
+
+        viewContext.delete(order)
+        
+        save(completion: completion)
     }
     
 

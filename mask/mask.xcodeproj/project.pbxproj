@@ -24,6 +24,9 @@
 		234E625D286BF67D00D94FA8 /* Bundle+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 234E625C286BF67D00D94FA8 /* Bundle+Extension.swift */; };
 		234E625F286BF91600D94FA8 /* Parser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 234E625E286BF91600D94FA8 /* Parser.swift */; };
 		234E6261286BFA2400D94FA8 /* MaskProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 234E6260286BFA2400D94FA8 /* MaskProvider.swift */; };
+		234E6269286C2EE500D94FA8 /* MaskTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 234E6267286C2EE500D94FA8 /* MaskTableViewCell.swift */; };
+		234E626A286C2EE500D94FA8 /* MaskTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 234E6268286C2EE500D94FA8 /* MaskTableViewCell.xib */; };
+		234E626D286C300E00D94FA8 /* UITableView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 234E626C286C300E00D94FA8 /* UITableView+Extension.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -65,6 +68,9 @@
 		234E625C286BF67D00D94FA8 /* Bundle+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Bundle+Extension.swift"; sourceTree = "<group>"; };
 		234E625E286BF91600D94FA8 /* Parser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Parser.swift; sourceTree = "<group>"; };
 		234E6260286BFA2400D94FA8 /* MaskProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MaskProvider.swift; sourceTree = "<group>"; };
+		234E6267286C2EE500D94FA8 /* MaskTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MaskTableViewCell.swift; sourceTree = "<group>"; };
+		234E6268286C2EE500D94FA8 /* MaskTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MaskTableViewCell.xib; sourceTree = "<group>"; };
+		234E626C286C300E00D94FA8 /* UITableView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITableView+Extension.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -118,10 +124,11 @@
 				234E621F286BED4100D94FA8 /* AppDelegate.swift */,
 				234E6221286BED4100D94FA8 /* SceneDelegate.swift */,
 				234E6223286BED4100D94FA8 /* ViewController.swift */,
+				234E6266286C2E0900D94FA8 /* View */,
 				234E6260286BFA2400D94FA8 /* MaskProvider.swift */,
 				234E625A286BF50E00D94FA8 /* MaskConstant.swift */,
 				234E6258286BF3EB00D94FA8 /* HTTPClient.swift */,
-				234E625C286BF67D00D94FA8 /* Bundle+Extension.swift */,
+				234E626B286C2FEF00D94FA8 /* Extension */,
 				234E6252286BED7E00D94FA8 /* StorageManager.swift */,
 				234E625E286BF91600D94FA8 /* Parser.swift */,
 				234E6254286BF09100D94FA8 /* maskData.swift */,
@@ -149,6 +156,24 @@
 				234E6245286BED4300D94FA8 /* maskUITestsLaunchTests.swift */,
 			);
 			path = maskUITests;
+			sourceTree = "<group>";
+		};
+		234E6266286C2E0900D94FA8 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				234E6267286C2EE500D94FA8 /* MaskTableViewCell.swift */,
+				234E6268286C2EE500D94FA8 /* MaskTableViewCell.xib */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		234E626B286C2FEF00D94FA8 /* Extension */ = {
+			isa = PBXGroup;
+			children = (
+				234E625C286BF67D00D94FA8 /* Bundle+Extension.swift */,
+				234E626C286C300E00D94FA8 /* UITableView+Extension.swift */,
+			);
+			path = Extension;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -256,6 +281,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				234E622F286BED4300D94FA8 /* LaunchScreen.storyboard in Resources */,
+				234E626A286C2EE500D94FA8 /* MaskTableViewCell.xib in Resources */,
 				234E622C286BED4300D94FA8 /* Assets.xcassets in Resources */,
 				234E6227286BED4100D94FA8 /* Main.storyboard in Resources */,
 			);
@@ -283,6 +309,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				234E6261286BFA2400D94FA8 /* MaskProvider.swift in Sources */,
+				234E6269286C2EE500D94FA8 /* MaskTableViewCell.swift in Sources */,
 				234E6224286BED4100D94FA8 /* ViewController.swift in Sources */,
 				234E625D286BF67D00D94FA8 /* Bundle+Extension.swift in Sources */,
 				234E625F286BF91600D94FA8 /* Parser.swift in Sources */,
@@ -293,6 +320,7 @@
 				234E6253286BED7E00D94FA8 /* StorageManager.swift in Sources */,
 				234E6220286BED4100D94FA8 /* AppDelegate.swift in Sources */,
 				234E6222286BED4100D94FA8 /* SceneDelegate.swift in Sources */,
+				234E626D286C300E00D94FA8 /* UITableView+Extension.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
