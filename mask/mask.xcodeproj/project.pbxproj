@@ -27,6 +27,7 @@
 		234E6269286C2EE500D94FA8 /* MaskTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 234E6267286C2EE500D94FA8 /* MaskTableViewCell.swift */; };
 		234E626A286C2EE500D94FA8 /* MaskTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 234E6268286C2EE500D94FA8 /* MaskTableViewCell.xib */; };
 		234E626D286C300E00D94FA8 /* UITableView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 234E626C286C300E00D94FA8 /* UITableView+Extension.swift */; };
+		234E626F286C6D9300D94FA8 /* NextViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 234E626E286C6D9300D94FA8 /* NextViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -71,6 +72,7 @@
 		234E6267286C2EE500D94FA8 /* MaskTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MaskTableViewCell.swift; sourceTree = "<group>"; };
 		234E6268286C2EE500D94FA8 /* MaskTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MaskTableViewCell.xib; sourceTree = "<group>"; };
 		234E626C286C300E00D94FA8 /* UITableView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITableView+Extension.swift"; sourceTree = "<group>"; };
+		234E626E286C6D9300D94FA8 /* NextViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NextViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -124,6 +126,7 @@
 				234E621F286BED4100D94FA8 /* AppDelegate.swift */,
 				234E6221286BED4100D94FA8 /* SceneDelegate.swift */,
 				234E6223286BED4100D94FA8 /* ViewController.swift */,
+				234E626E286C6D9300D94FA8 /* NextViewController.swift */,
 				234E6266286C2E0900D94FA8 /* View */,
 				234E6260286BFA2400D94FA8 /* MaskProvider.swift */,
 				234E625A286BF50E00D94FA8 /* MaskConstant.swift */,
@@ -309,6 +312,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				234E6261286BFA2400D94FA8 /* MaskProvider.swift in Sources */,
+				234E626F286C6D9300D94FA8 /* NextViewController.swift in Sources */,
 				234E6269286C2EE500D94FA8 /* MaskTableViewCell.swift in Sources */,
 				234E6224286BED4100D94FA8 /* ViewController.swift in Sources */,
 				234E625D286BF67D00D94FA8 /* Bundle+Extension.swift in Sources */,

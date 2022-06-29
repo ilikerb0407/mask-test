@@ -6,11 +6,24 @@
 //
 
 import UIKit
+import WebKit
 
 class ViewController: UIViewController {
 
     
     var product: MaskData?
+    
+    var containerView : UIView? = nil
+    
+    var webView: WKWebView?
+    
+    override func loadView(){
+        super.loadView()
+        
+        self.webView = WKWebView()
+        
+        self.view = self.webView
+    }
     
     private var tableView: UITableView! {
         
@@ -30,6 +43,14 @@ class ViewController: UIViewController {
         
         setUpTableView()
         
+        let url = URL(string: "https://tw.feature.appledaily.com/collection/dailyquote")
+        
+        guard let url = url else { return }
+        
+        let req = URLRequest(url: url)
+        
+        self.webView!.load(req)
+        
         
     }
     
@@ -37,7 +58,54 @@ class ViewController: UIViewController {
     
     var datas: MaskData?
     
-    var test = [Feature]()
+    var test = [Feature]() {
+        
+        didSet {
+            
+            manageMaskData()
+        }
+    }
+    
+    var empty = [Feature]()
+    
+    var taichung = [Feature]()
+    
+    var taipei = [Feature]()
+    
+    func manageMaskData() {
+        
+        empty = []
+        
+        taichung = []
+        
+        taipei = []
+        
+        for route in self.test {
+            
+            switch route.properties.county {
+                
+            case County.臺北市:
+                
+                taipei.append(route)
+                
+            case County.empty :
+                
+                empty.append(route)
+                
+            case County.臺中市:
+                taichung.append(route)
+                
+          
+                
+            default:
+                return
+            }
+        }
+        
+        
+        
+        
+    }
     
     // MARK: - Action
     func fetchData() {
@@ -103,7 +171,6 @@ class ViewController: UIViewController {
     
     func setUpTableView() {
         
-        
         tableView = UITableView()
         
         tableView.registerCellWithNib(identifier: MaskTableViewCell.identifier, bundle: nil)
@@ -118,7 +185,7 @@ class ViewController: UIViewController {
         
         NSLayoutConstraint.activate([
             
-            tableView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
+            tableView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 100),
             
             tableView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
             
@@ -128,6 +195,17 @@ class ViewController: UIViewController {
         ])
         
     }
+    
+    func push(sender: Any?) {
+        
+        if let nextViewController = storyboard?.instantiateViewController(withIdentifier: "NextViewController") as? NextViewController {
+            
+            if let routes = sender as? [Feature] {
+                nextViewController.test = routes
+            }
+            navigationController?.pushViewController(nextViewController, animated: true)
+        }
+    }
 
 
 }
@@ -135,7 +213,7 @@ class ViewController: UIViewController {
 extension ViewController: UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        100
+        120
     }
     
     func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
@@ -148,10 +226,10 @@ extension ViewController: UITableViewDelegate {
 //                switch result {
 //
 //                case .success(_):
-//                    self.records.remove(at: indexPath.row)
-//
-//                    self.tableView.deleteRows(at: [indexPath], with: .left)
-//
+                    self.test.remove(at: indexPath.row)
+
+                    self.tableView.deleteRows(at: [indexPath], with: .left)
+
 //                    LKProgressHUD.showSuccess(text: "刪除成功")
 //
 //                case .failure(let error):
@@ -159,6 +237,27 @@ extension ViewController: UITableViewDelegate {
 //                }
 //            }
         }
+    }
+    
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
+        var sender = [Feature]()
+        
+        switch indexPath.row {
+            
+        case 0 :
+            sender = empty
+        case 1 :
+            sender = taichung
+        case 2 :
+            sender = taipei
+        
+        default:
+            return
+        }
+        push(sender: sender)
+        
     }
 }
 
@@ -175,7 +274,7 @@ extension ViewController: UITableViewDataSource {
         let cell: MaskTableViewCell = tableView.dequeueCell(for: indexPath)
         
         
-        cell.setUpCell(object: test[indexPath.row])
+        cell.setUpCell(object: taipei[indexPath.row])
         
         return cell
         

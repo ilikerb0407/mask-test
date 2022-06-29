@@ -17,16 +17,16 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="26" translatesAutoresizingMaskIntoConstraints="NO" id="cs4-Vf-Q1h">
-                        <rect key="frame" x="30" y="21" width="317" height="119"/>
+                        <rect key="frame" x="10" y="10" width="41.5" height="141"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3Xu-pl-BcK">
-                                <rect key="frame" x="0.0" y="0.0" width="317" height="72.5"/>
+                                <rect key="frame" x="0.0" y="0.0" width="41.5" height="94.5"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EfR-aY-1YO">
-                                <rect key="frame" x="0.0" y="98.5" width="317" height="20.5"/>
+                                <rect key="frame" x="0.0" y="120.5" width="41.5" height="20.5"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="20.5" id="ABm-xe-wmb"/>
                                 </constraints>
@@ -36,16 +36,40 @@
                             </label>
                         </subviews>
                     </stackView>
+                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="25" translatesAutoresizingMaskIntoConstraints="NO" id="gM1-lv-Y0V">
+                        <rect key="frame" x="285.5" y="21" width="41.5" height="119"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3FW-N1-hMr">
+                                <rect key="frame" x="0.0" y="0.0" width="41.5" height="73.5"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RST-Ls-x9p">
+                                <rect key="frame" x="0.0" y="98.5" width="41.5" height="20.5"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="20.5" id="Xfb-n0-349"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                    </stackView>
                 </subviews>
                 <constraints>
-                    <constraint firstItem="cs4-Vf-Q1h" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" constant="10" id="02q-nv-YgJ"/>
-                    <constraint firstItem="cs4-Vf-Q1h" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" constant="10" id="fQE-US-bza"/>
-                    <constraint firstAttribute="bottomMargin" secondItem="cs4-Vf-Q1h" secondAttribute="bottom" constant="10" id="lIn-yl-CAi"/>
-                    <constraint firstAttribute="trailing" secondItem="cs4-Vf-Q1h" secondAttribute="trailing" constant="10" id="pC4-PA-RwI"/>
+                    <constraint firstItem="cs4-Vf-Q1h" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="10" id="3NR-Zf-Nqz"/>
+                    <constraint firstAttribute="bottom" secondItem="cs4-Vf-Q1h" secondAttribute="bottom" constant="10" id="XLl-ry-5Pn"/>
+                    <constraint firstAttribute="bottomMargin" secondItem="gM1-lv-Y0V" secondAttribute="bottom" constant="10" id="ko9-9q-MqX"/>
+                    <constraint firstAttribute="trailingMargin" secondItem="gM1-lv-Y0V" secondAttribute="trailing" constant="10" id="x2v-hr-SZ8"/>
+                    <constraint firstItem="cs4-Vf-Q1h" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="10" id="yBs-bj-TYB"/>
+                    <constraint firstItem="gM1-lv-Y0V" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" constant="10" id="yHl-2J-TpG"/>
                 </constraints>
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <connections>
+                <outlet property="adultMask" destination="RST-Ls-x9p" id="430-J2-Sdr"/>
+                <outlet property="childMask" destination="3FW-N1-hMr" id="gOy-GM-1Ij"/>
                 <outlet property="name" destination="3Xu-pl-BcK" id="nFh-xk-APx"/>
                 <outlet property="phone" destination="EfR-aY-1YO" id="6tu-Cw-kuc"/>
             </connections>

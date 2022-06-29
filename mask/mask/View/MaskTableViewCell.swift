@@ -14,6 +14,12 @@ class MaskTableViewCell: UITableViewCell {
     
     @IBOutlet weak var phone: UILabel!
     
+    @IBOutlet weak var childMask: UILabel!
+    
+    @IBOutlet weak var adultMask: UILabel!
+    
+    
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
@@ -27,9 +33,13 @@ class MaskTableViewCell: UITableViewCell {
     
     func setUpCell(object: Feature) {
         
-        name.text = object.properties.name
+        name.text = "診所：\(object.properties.name)"
         
-        phone.text = object.properties.phone
+        phone.text = "診所電話：\(object.properties.phone)"
+        
+        childMask.text = "小孩口罩：\(object.properties.maskChild)"
+        
+        adultMask.text = "成人口罩：\(object.properties.maskAdult)"
         
     }
     
