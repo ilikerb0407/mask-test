@@ -9,9 +9,9 @@ import UIKit
 import WebKit
 
 class ViewController: UIViewController {
-
     
-    var product: MaskData?
+    
+    var product: Feature?
     
     var containerView : UIView? = nil
     
@@ -37,7 +37,7 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
         
-//        fetchData()
+//                fetchData()
         
         testtest()
         
@@ -65,63 +65,126 @@ class ViewController: UIViewController {
             manageMaskData()
         }
     }
-    
     var empty = [Feature]()
     
-    var taichung = [Feature]()
+    var 南投縣 = [Feature]()
     
-    var taipei = [Feature]()
+    var 嘉義市 = [Feature]()
+    
+    var 嘉義縣 = [Feature]()
+    
+    var 基隆市 =  [Feature]()
+    
+    var 宜蘭縣 = [Feature]()
+    
+    var 屏東縣 = [Feature]()
+    
+    var 彰化縣 = [Feature]()
+    
+    var 新北市 = [Feature]()
+    
+    var 新竹市 = [Feature]()
+    
+    var 新竹縣 = [Feature]()
+    
+    var 桃園市 = [Feature]()
+    
+    var 澎湖縣 = [Feature]()
+    
+    var 臺中市 = [Feature]()
+    
+    var 臺北市 = [Feature]()
+    
+    var 臺南市 = [Feature]()
+    
+    var 臺東縣 = [Feature]()
+    
+    var 花蓮縣 = [Feature]()
+    
+    var 苗栗縣 = [Feature]()
+    
+    var 連江縣 = [Feature]()
+    
+    var 金門縣 = [Feature]()
+    
+    var 雲林縣 = [Feature]()
+    
+    var 高雄市 = [Feature]()
+    
     
     func manageMaskData() {
-        
-        empty = []
-        
-        taichung = []
-        
-        taipei = []
         
         for route in self.test {
             
             switch route.properties.county {
                 
-            case County.臺北市:
-                
-                taipei.append(route)
-                
-            case County.empty :
-                
+            case .empty:
                 empty.append(route)
-                
-            case County.臺中市:
-                taichung.append(route)
-                
-          
-                
-            default:
-                return
+            case .南投縣:
+                南投縣.append(route)
+            case .嘉義市:
+                嘉義市.append(route)
+            case .嘉義縣:
+                嘉義縣.append(route)
+            case .基隆市:
+                基隆市.append(route)
+            case .宜蘭縣:
+                宜蘭縣.append(route)
+            case .屏東縣:
+                屏東縣.append(route)
+            case .彰化縣:
+                彰化縣.append(route)
+            case .新北市:
+                新北市.append(route)
+            case .新竹市:
+                新竹市.append(route)
+            case .新竹縣:
+                新竹縣.append(route)
+            case .桃園市:
+                桃園市.append(route)
+            case .澎湖縣:
+                澎湖縣.append(route)
+            case .臺中市:
+                臺中市.append(route)
+            case .臺北市:
+                臺北市.append(route)
+            case .臺南市:
+                臺南市.append(route)
+            case .臺東縣:
+                臺東縣.append(route)
+            case .花蓮縣:
+                花蓮縣.append(route)
+            case .苗栗縣:
+                苗栗縣.append(route)
+            case .連江縣:
+                連江縣.append(route)
+            case .金門縣:
+                金門縣.append(route)
+            case .雲林縣:
+                雲林縣.append(route)
+            case .高雄市:
+                高雄市.append(route)
             }
         }
-        
-        
-        
-        
+  
     }
     
     // MARK: - Action
     func fetchData() {
-
+        
         maskProvider.getMaskData (completion: { [weak self] result in
             
             switch result {
-
+                
             case .success(let products):
-
-//                self?.datas = products
-            print ("\(products)")
-
+                
+                self?.datas = products
+                
+                print ("\(products)")
+                
             case .failure:
-
-//                LKProgressHUD.showFailure(text: "讀取資料失敗！")
+                
+                //                LKProgressHUD.showFailure(text: "讀取資料失敗！")
                 print("讀取資料失敗！")
             }
         })
@@ -132,37 +195,40 @@ class ViewController: UIViewController {
         maskProvider.fetchMaskData(completion: { [weak self] result in
             
             switch result {
-
+                
             case .success(let products):
-
+                
                 self?.test = products.features
+                
+                self?.saveToDB(products)
                 
                 self?.tableView.reloadData()
                 
-//                self?.saveToDB(products)
-
             case .failure:
-
-//                LKProgressHUD.showFailure(text: "讀取資料失敗！")
+                
+                //                LKProgressHUD.showFailure(text: "讀取資料失敗！")
                 print("讀取資料失敗！")
             }
         })
     }
     
     func saveToDB(_ product: MaskData) {
-
+        
         StorageManager.shared.saveOrder(
             product: product ,
+            
             completion: { result in
-
+                
                 switch result {
-
+                    
                 case .success:
-
+                    
+                    saveToDB(product)
+                    
                     print("success")
-
+                    
                 case .failure:
-
+                    
                     print("failure")
                     
                 }
@@ -196,47 +262,14 @@ class ViewController: UIViewController {
         
     }
     
-    func push(sender: Any?) {
-        
-        if let nextViewController = storyboard?.instantiateViewController(withIdentifier: "NextViewController") as? NextViewController {
-            
-            if let routes = sender as? [Feature] {
-                nextViewController.test = routes
-            }
-            navigationController?.pushViewController(nextViewController, animated: true)
-        }
-    }
-
-
+    
+    
 }
 
 extension ViewController: UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         120
-    }
-    
-    func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
-        true
-    }
-    
-    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
-        if editingStyle == .delete {
-//            RecordManager.shared.deleteStorageRecords(fileName: records[indexPath.row].recordName) { result in
-//                switch result {
-//
-//                case .success(_):
-                    self.test.remove(at: indexPath.row)
-
-                    self.tableView.deleteRows(at: [indexPath], with: .left)
-
-//                    LKProgressHUD.showSuccess(text: "刪除成功")
-//
-//                case .failure(let error):
-//                    print ("delete error: \(error)")
-//                }
-//            }
-        }
     }
     
     
@@ -249,22 +282,36 @@ extension ViewController: UITableViewDelegate {
         case 0 :
             sender = empty
         case 1 :
-            sender = taichung
+            sender = 南投縣
         case 2 :
-            sender = taipei
-        
+            sender = 嘉義市
+        case 3 :
+            sender = 嘉義縣
+            
         default:
             return
         }
         push(sender: sender)
         
     }
+    
+    func push(sender: Any?) {
+        
+        if let nextViewController = storyboard?.instantiateViewController(withIdentifier: "NextViewController") as? NextViewController {
+            
+            if let routes = sender as? [Feature] {
+                nextViewController.test = routes
+            }
+            navigationController?.pushViewController(nextViewController, animated: true)
+        }
+    }
+    
 }
 
 extension ViewController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        test.count
+        CitiesType.allCases.count
     }
     
     
@@ -274,7 +321,7 @@ extension ViewController: UITableViewDataSource {
         let cell: MaskTableViewCell = tableView.dequeueCell(for: indexPath)
         
         
-        cell.setUpCell(object: taipei[indexPath.row])
+        cell.setUpCell(object: CitiesType.allCases[indexPath.row].rawValue)
         
         return cell
         

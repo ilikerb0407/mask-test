@@ -11,11 +11,11 @@ import CoreData
 
 typealias LSOrderResults = (Result<[Mask]>) -> Void
 
-@objc class StorageManager: NSObject {
+class StorageManager {
     
     static let shared = StorageManager()
     
-    private override init() {
+    init() {
         
         print(" Core data file path: \(NSPersistentContainer.defaultDirectoryURL())")
     }
@@ -44,28 +44,28 @@ typealias LSOrderResults = (Result<[Mask]>) -> Void
     }
     
     @objc dynamic var orders: [Mask] = []
-
     
+    
+    
+   
     // MARK: save to local
-    func saveOrder( product: MaskData,
+    func saveOrder(product: MaskData,
         completion: (Result<Void>) -> Void) {
 
-        let order = Mask(context: viewContext)
-
-        let lsProduct = Mask(context: viewContext)
-
+        var lsProduct = Mask(context: viewContext)
+        
         lsProduct.mapping(product)
         
-        order.name = lsProduct.name
         
         save(completion: completion)
+        
+        
     }
     
     func save(completion: (Result<Void>) -> Void = { _ in  }) {
         
         do {
             try viewContext.save()
-            
             
             fetchOrders(completion: { result in
 
@@ -117,14 +117,28 @@ typealias LSOrderResults = (Result<[Mask]>) -> Void
 
 // MARK: - Data Operation
 private extension Mask {
-
+    
     func mapping(_ object: MaskData) {
         
-        name = object.features.first?.properties.name
         
-        id = object.features.first?.properties.id
+//        for i in 0..<object.features.count {
+
+            
+            
+//            name?.append(object.features[i].properties.name)
+            
+            
+            
+            
+            
+//            name = object.features[i].properties.name
+            
+//            id?.append(object.features[i].properties.id)
+//
+//            phone?.append(object.features[i].properties.phone)
+            
+//        }
         
-        phone = object.features.first?.properties.phone
         
     }
 

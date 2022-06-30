@@ -1,5 +1,5 @@
 //
-//  MaskTableViewCell.swift
+//  NextTableViewCell.swift
 //  mask
 //
 //  Created by Kai Fu Jhuang on 2022/6/29.
@@ -7,14 +7,8 @@
 
 import UIKit
 
-class MaskTableViewCell: UITableViewCell {
+class NextTableViewCell: UITableViewCell {
 
-    
-    @IBOutlet weak var name: UILabel!
-    
-    
-    
-    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
@@ -24,13 +18,6 @@ class MaskTableViewCell: UITableViewCell {
         super.setSelected(selected, animated: animated)
 
         // Configure the view for the selected state
-    }
-    
-    func setUpCell(object: String) {
-        
-        name.text = "縣市：\(object)"
-        
-        
     }
     
 }
