@@ -60,39 +60,4 @@ class MaskProvider {
         
     }
     
-    func getMaskData(completion: @escaping Hanlder) {
-        
-        
-        let urlString = URL(string: "\(Bundle.ValueForString(key: MaskConstant.urlKey))")
-        
-        guard let urlString = urlString else {
-            return
-        }
-        
-        let url = URLRequest(url: urlString)
-        
-        
-        URLSession.shared.dataTask(with: url, completionHandler: { (data, response, error) in
-            guard let data = data else { return }
-            let decoder = JSONDecoder()
-            do {
-                
-                
-                let userData = try decoder.decode(MaskData.self, from: data)
-                
-                DispatchQueue.main.async {
-
-                   completion(Result.success(userData))
-                }
-                
-            } catch {
-                
-                completion(Result.failure(error))
-            }
-            
-        }) .resume()
-        
-        
-        
-    }
 }

@@ -37,9 +37,7 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
         
-//                fetchData()
-        
-        testtest()
+        saveDataToLocal()
         
         setUpTableView()
         
@@ -50,7 +48,6 @@ class ViewController: UIViewController {
         let req = URLRequest(url: url)
         
         self.webView!.load(req)
-        
         
     }
     
@@ -166,31 +163,12 @@ class ViewController: UIViewController {
                 高雄市.append(route)
             }
         }
-  
+        
     }
     
     // MARK: - Action
-    func fetchData() {
-        
-        maskProvider.getMaskData (completion: { [weak self] result in
-            
-            switch result {
-                
-            case .success(let products):
-                
-                self?.datas = products
-                
-                print ("\(products)")
-                
-            case .failure:
-                
-                //                LKProgressHUD.showFailure(text: "讀取資料失敗！")
-                print("讀取資料失敗！")
-            }
-        })
-    }
-    // MARK: can show statuscode
-    func testtest() {
+    
+    func saveDataToLocal() {
         
         maskProvider.fetchMaskData(completion: { [weak self] result in
             
@@ -223,10 +201,8 @@ class ViewController: UIViewController {
                     
                 case .success:
                     
-                    saveToDB(product)
-                    
-                    print("success")
-                    
+//                test = product.features
+                    print ("success")
                 case .failure:
                     
                     print("failure")
@@ -278,6 +254,7 @@ extension ViewController: UITableViewDelegate {
         var sender = [Feature]()
         
         switch indexPath.row {
+      
             
         case 0 :
             sender = empty
@@ -287,7 +264,45 @@ extension ViewController: UITableViewDelegate {
             sender = 嘉義市
         case 3 :
             sender = 嘉義縣
-            
+        case 4 :
+            sender = 基隆市
+        case 5 :
+            sender = 宜蘭縣
+        case 6 :
+            sender = 屏東縣
+        case 7 :
+            sender = 彰化縣
+        case 8 :
+            sender = 新北市
+        case 9 :
+            sender = 新竹市
+        case 10 :
+            sender =  新竹縣
+        case 11 :
+            sender = 桃園市
+        case 12 :
+            sender = 澎湖縣
+        case 13 :
+            sender = 臺中市
+        case 14 :
+            sender = 臺北市
+        case 15 :
+            sender = 臺南市
+        case 16 :
+            sender = 臺東縣
+        case 17 :
+            sender = 花蓮縣
+        case 18 :
+            sender = 苗栗縣
+        case 19 :
+            sender = 連江縣
+        case 20 :
+            sender = 金門縣
+        case 21 :
+            sender = 雲林縣
+        case 22 :
+            sender = 高雄市
+       
         default:
             return
         }
@@ -297,21 +312,29 @@ extension ViewController: UITableViewDelegate {
     
     func push(sender: Any?) {
         
+        
+        
         if let nextViewController = storyboard?.instantiateViewController(withIdentifier: "NextViewController") as? NextViewController {
             
             if let routes = sender as? [Feature] {
                 nextViewController.test = routes
+                
+                self.navigationController?.pushViewController(nextViewController, animated: true)
             }
-            navigationController?.pushViewController(nextViewController, animated: true)
         }
+     
     }
-    
 }
+
+
+
 
 extension ViewController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        
         CitiesType.allCases.count
+        
     }
     
     
@@ -319,7 +342,6 @@ extension ViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         let cell: MaskTableViewCell = tableView.dequeueCell(for: indexPath)
-        
         
         cell.setUpCell(object: CitiesType.allCases[indexPath.row].rawValue)
         
