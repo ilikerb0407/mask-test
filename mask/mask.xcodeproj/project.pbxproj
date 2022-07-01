@@ -131,17 +131,16 @@
 			children = (
 				234E621F286BED4100D94FA8 /* AppDelegate.swift */,
 				234E6221286BED4100D94FA8 /* SceneDelegate.swift */,
-				234E6223286BED4100D94FA8 /* ViewController.swift */,
-				234E626E286C6D9300D94FA8 /* NextViewController.swift */,
-				236C861C286C7BFB0020246A /* CityType.swift */,
+				23AFE672286E0BA7007F7DC2 /* ViewController */,
 				234E6266286C2E0900D94FA8 /* View */,
+				234E626B286C2FEF00D94FA8 /* Extension */,
+				23AFE673286E0C29007F7DC2 /* Model */,
 				234E6260286BFA2400D94FA8 /* MaskProvider.swift */,
+				234E6252286BED7E00D94FA8 /* StorageManager.swift */,
 				234E625A286BF50E00D94FA8 /* MaskConstant.swift */,
 				234E6258286BF3EB00D94FA8 /* HTTPClient.swift */,
-				234E626B286C2FEF00D94FA8 /* Extension */,
-				234E6252286BED7E00D94FA8 /* StorageManager.swift */,
 				234E625E286BF91600D94FA8 /* Parser.swift */,
-				234E6254286BF09100D94FA8 /* maskData.swift */,
+				236C861C286C7BFB0020246A /* CityType.swift */,
 				234E6225286BED4100D94FA8 /* Main.storyboard */,
 				234E622B286BED4300D94FA8 /* Assets.xcassets */,
 				234E622D286BED4300D94FA8 /* LaunchScreen.storyboard */,
@@ -186,6 +185,23 @@
 				234E626C286C300E00D94FA8 /* UITableView+Extension.swift */,
 			);
 			path = Extension;
+			sourceTree = "<group>";
+		};
+		23AFE672286E0BA7007F7DC2 /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				234E6223286BED4100D94FA8 /* ViewController.swift */,
+				234E626E286C6D9300D94FA8 /* NextViewController.swift */,
+			);
+			path = ViewController;
+			sourceTree = "<group>";
+		};
+		23AFE673286E0C29007F7DC2 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				234E6254286BF09100D94FA8 /* maskData.swift */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */

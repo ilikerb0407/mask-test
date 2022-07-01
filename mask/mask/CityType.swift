@@ -9,7 +9,7 @@ import Foundation
 
 enum CitiesType: String, CaseIterable {
     
-    case empty = ""
+    case empty = "其他縣市"
     case 南投縣 = "南投縣"
     case 嘉義市 = "嘉義市"
     case 嘉義縣 = "嘉義縣"

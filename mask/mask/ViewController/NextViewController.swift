@@ -21,7 +21,7 @@ class NextViewController: UIViewController {
     }
     
     
-    var test = [Feature]() {
+    var feature = [Feature]() {
         didSet {
             
             setUpLabel()
@@ -32,7 +32,6 @@ class NextViewController: UIViewController {
         super.viewDidLoad()
         
         setUpTableView()
-        
         
         setUpThemeTag()
         
@@ -67,7 +66,7 @@ class NextViewController: UIViewController {
     
     func setUpLabel() {
         
-        if let label = test.first?.properties.county {
+        if let label = feature.first?.properties.county {
             
             switch label {
                 
@@ -177,7 +176,7 @@ extension NextViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         
         if editingStyle == .delete {
-            self.test.remove(at: indexPath.row)
+            self.feature.remove(at: indexPath.row)
             
             self.tableView.deleteRows(at: [indexPath], with: .left)
             
@@ -190,14 +189,14 @@ extension NextViewController: UITableViewDelegate {
 extension NextViewController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        test.count
+        feature.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         let cell: NextTableViewCell = tableView.dequeueCell(for: indexPath)
         
-        cell.setUpCell(model: test[indexPath.row])
+        cell.setUpCell(model: feature[indexPath.row])
         
         return cell
         

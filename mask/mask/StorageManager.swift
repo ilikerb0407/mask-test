@@ -9,7 +9,7 @@ import Foundation
 import CoreData
 
 
-typealias LSOrderResults = (Result<[Mask]>) -> Void
+typealias MaskResults = (Result<[Mask]>) -> Void
 
 class StorageManager {
     
@@ -54,23 +54,23 @@ class StorageManager {
         
         var lsProduct = Mask(context: viewContext)
      
-    
         for i in 0..<product.features.count  {
-            
+//
             lsProduct.name?.append(product.features[i].properties.name)
-            
-            
+
+//
             lsProduct.phone?.append(product.features[i].properties.phone)
-            
-            
+//
+
             lsProduct.id?.append(product.features[i].properties.id)
             
             lsProduct.mapping(product)
+            
+            save(completion: completion)
+            
         }
         
-        save(completion: completion)
         
-
     }
     
     func save(completion: (Result<Void>) -> Void = { _ in  }) {
@@ -92,7 +92,7 @@ class StorageManager {
         }
     }
     
-    func fetchOrders(completion: LSOrderResults = { _ in }) {
+    func fetchOrders(completion: MaskResults = { _ in }) {
         
         let request = NSFetchRequest<Mask>(entityName: "Mask")
         
@@ -124,16 +124,19 @@ class StorageManager {
 // MARK: - Data Operation
 private extension Mask {
     
+    
     func mapping(_ object: MaskData) {
         
-        
+      
         name = object.features.first?.properties.name
         
         phone = object.features.first?.properties.phone
-        
+
         id = object.features.first?.properties.phone
         
-    
-    }
-
+      
+        }
 }
+    
+
+

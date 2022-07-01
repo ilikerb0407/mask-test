@@ -10,19 +10,27 @@ import WebKit
 
 class ViewController: UIViewController {
     
-    
-    var product: Feature?
-    
-    var containerView : UIView? = nil
-    
     var webView: WKWebView?
     
     override func loadView(){
         super.loadView()
         
         self.webView = WKWebView()
-        
+    
         self.view = self.webView
+    
+        
+    }
+    
+    func loadUrl() {
+        
+        let url = URL(string: "https://tw.feature.appledaily.com/collection/dailyquote")
+        
+        guard let url = url else { return }
+        
+        let req = URLRequest(url: url)
+        
+        self.webView!.load(req)
     }
     
     private var tableView: UITableView! {
@@ -32,6 +40,7 @@ class ViewController: UIViewController {
             tableView.dataSource = self
         }
     }
+    var orders: [Mask] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -41,21 +50,14 @@ class ViewController: UIViewController {
         
         setUpTableView()
         
-        let url = URL(string: "https://tw.feature.appledaily.com/collection/dailyquote")
-        
-        guard let url = url else { return }
-        
-        let req = URLRequest(url: url)
-        
-        self.webView!.load(req)
+        loadUrl()
         
     }
     
     let maskProvider = MaskProvider()
     
-    var datas: MaskData?
     
-    var test = [Feature]() {
+    var masks = [Feature]() {
         
         didSet {
             
@@ -111,7 +113,7 @@ class ViewController: UIViewController {
     
     func manageMaskData() {
         
-        for route in self.test {
+        for route in self.masks {
             
             switch route.properties.county {
                 
@@ -176,15 +178,14 @@ class ViewController: UIViewController {
                 
             case .success(let products):
                 
-                self?.test = products.features
-                
                 self?.saveToDB(products)
+                
+                self?.masks = products.features
                 
                 self?.tableView.reloadData()
                 
             case .failure:
-                
-                //                LKProgressHUD.showFailure(text: "讀取資料失敗！")
+ 
                 print("讀取資料失敗！")
             }
         })
@@ -200,8 +201,6 @@ class ViewController: UIViewController {
                 switch result {
                     
                 case .success:
-                    
-//                test = product.features
                     print ("success")
                 case .failure:
                     
@@ -227,7 +226,7 @@ class ViewController: UIViewController {
         
         NSLayoutConstraint.activate([
             
-            tableView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 100),
+            tableView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 300),
             
             tableView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
             
@@ -316,8 +315,8 @@ extension ViewController: UITableViewDelegate {
         
         if let nextViewController = storyboard?.instantiateViewController(withIdentifier: "NextViewController") as? NextViewController {
             
-            if let routes = sender as? [Feature] {
-                nextViewController.test = routes
+            if let feature = sender as? [Feature] {
+                nextViewController.feature = feature
                 
                 self.navigationController?.pushViewController(nextViewController, animated: true)
             }
